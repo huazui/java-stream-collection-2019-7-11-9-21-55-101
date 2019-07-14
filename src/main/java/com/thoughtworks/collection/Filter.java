@@ -24,11 +24,13 @@ public class Filter {
     }
 
     public List<Integer> getCommonElements(List<Integer> firstList, List<Integer> secondList) {
-        throw new NotImplementedException();
+       return firstList.stream().filter(item->secondList.contains(item)).collect(Collectors.toList());
     }
-//这个我暂时想不到filter怎么用，因为返回索引位置总是报错，不知道为什么。
+//这个我暂时想不到filter怎么用，因为返回索引位置总是报错，不知道为什么。只能用map再转为list。
+    //学习到了distinct新方法
     public List<Integer> getDifferentElements() {
-        return array.stream().collect(Collectors.toSet()).stream().collect(Collectors.toList());
-        }
+        return array.stream().distinct().collect(Collectors.toList());
+
+    }
 
 }
